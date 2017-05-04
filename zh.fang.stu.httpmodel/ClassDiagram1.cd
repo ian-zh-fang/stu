@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="zh.fang.stu.httpmodel.filters.FilterCollection" Collapsed="true">
+    <Position X="8.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAACAAAACIAABAAAAAAAAAAACAAACABABAA=</HashCode>
+      <FileName>filters\FilterCollection.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="IFilter" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="zh.fang.stu.httpmodel.filters.FilterModule" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="8.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AYAAAAAAAAAAFAAAAAAAAAAAAAAAEAAAAAAAIAAAAAA=</HashCode>
+      <FileName>filters\FilterModule.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="FilterProviderFactory" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="zh.fang.stu.httpmodel.filters.FilterProvider" Collapsed="true">
+    <Position X="1.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAIAAAAAAAAIAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>filters\FilterProvider.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="zh.fang.stu.httpmodel.filters.DefaultFilterProvider" Collapsed="true">
+    <Position X="2.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>filters\FilterProvider.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="zh.fang.stu.httpmodel.filters.HttpApplicationFilterProvider" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>filters\FilterProvider.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="zh.fang.stu.httpmodel.filters.FilterProviderFactory" Collapsed="true">
+    <Position X="8.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAEAAAAAAA=</HashCode>
+      <FileName>filters\FilterProviderFactory.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="IFilterProvider" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="zh.fang.stu.httpmodel.filters.HttpApplicationContext" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="3.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>filters\HttpApplicationContext.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="zh.fang.stu.httpmodel.filters.HttpApplicationFilter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>filters\HttpApplicationFilter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Interface Name="zh.fang.stu.httpmodel.filters.IFilter" Collapsed="true">
+    <Position X="5.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>filters\IFilter.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="IFilterContext" />
+    </ShowAsAssociation>
+  </Interface>
+  <Interface Name="zh.fang.stu.httpmodel.filters.IFilterContext" Collapsed="true">
+    <Position X="3.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>filters\IFilterContext.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="zh.fang.stu.httpmodel.filters.IFilterProvider" Collapsed="true">
+    <Position X="5.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAABAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>filters\IFilterProvider.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="FilterCollection" />
+    </ShowAsAssociation>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
