@@ -11,11 +11,14 @@ namespace zh.fang.stu.@event
     class EventSource
     {
         public event Action action;
+        public event Action action_another;
 
         internal void Exec()
         {
             Console.WriteLine($"source thread --> {Thread.CurrentThread.ManagedThreadId} .");
             action?.Invoke();
+            Console.WriteLine();
+            action_another?.Invoke();
         }
     }
 
@@ -54,15 +57,17 @@ namespace zh.fang.stu.@event
                 {
                     EventRegisted.Add(hash, event_info);
                     var method = this.GetType().GetMethod("Callback", BindingFlags.Instance | BindingFlags.NonPublic);
-                    var handler = Delegate.CreateDelegate(event_info.EventHandlerType, hash, method);
-                    event_info.AddEventHandler(this, handler);
+                    //var handler = Delegate.CreateDelegate(typeof(Action<Int32>), hash, method);
+                    var handler = new Action(() => Callback(hash));
+                    event_info.AddEventHandler(eventSource, handler);
                 }
             }
         }
 
         void Callback(int hashCode)
         {
-            Parallel.Invoke(TaskCollection[hashCode].ToArray());
+            //Parallel.Invoke(TaskCollection[hashCode].ToArray());
+            TaskCollection[hashCode].AsParallel().ForAll(t => t.Invoke());
         }
     }
 
@@ -79,12 +84,24 @@ namespace zh.fang.stu.@event
 
         internal void Init(EventSource eventSource, EventApp app)
         {
-            app.RegisterEvent(eventSource, "action", () => CallbackCore());
+            app.RegisterEvent(eventSource, nameof(eventSource.action), () => CallbackCore());
+            app.RegisterEvent(eventSource, nameof(eventSource.action_another), () => AnotherCallbackCore());
+        }
+
+        void AnotherCallbackCore()
+        {
+            var wait = (new Random(Uuid.GetHashCode())).Next(100, 1999);
+            Console.WriteLine($"client: id --> {Id}\tuuid --> {Uuid}\tthread --> {Thread.CurrentThread.ManagedThreadId}\twait --> {wait}\tevent --> another_action");
+            Task.Delay(wait).Wait();
+            Console.WriteLine($"client: id --> {Id}\tevent --> another_action waited .");
         }
 
         void CallbackCore()
         {
-            Console.WriteLine($"client: id --> {Id}\tuuid --> {Uuid}\tthread --> {Thread.CurrentThread.ManagedThreadId}");
+            var wait = (new Random(Uuid.GetHashCode())).Next(100, 1999);
+            Console.WriteLine($"client: id --> {Id}\tuuid --> {Uuid}\tthread --> {Thread.CurrentThread.ManagedThreadId}\twait --> {wait}\tevent --> action");
+            Task.Delay(wait).Wait();
+            Console.WriteLine($"client: id --> {Id}\tevent --> action waited .");
         }
     }
 }
