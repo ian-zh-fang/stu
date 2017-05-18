@@ -2,6 +2,7 @@
 {
     using System;
     using System.Web;
+    using zh.fang.stu.clone;
 
     public class FilterModule : IHttpModule
     {
@@ -17,7 +18,8 @@
 
         private void End(HttpApplication app)
         {
-            
+            var data = Newtonsoft.Json.JsonConvert.SerializeObject(app);
+            var cloneApp = app.Clone();
         }
 
         public int StatusCode { get; set; } = 4430;
