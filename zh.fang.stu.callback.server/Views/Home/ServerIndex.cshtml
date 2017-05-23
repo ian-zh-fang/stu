@@ -1,0 +1,20 @@
+﻿@model zh.fang.stu.callback.server.Controllers.ServerModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ServerIndex</title>
+</head>
+<body>
+    <h1>page from server</h1>
+    <form action="@Url.Action("Submit")" method="post">
+        <input name="url" id="url" type="text" readonly="readonly" value="@Model.Url" />
+        <input type="submit" />
+    </form>
+</body>
+</html>

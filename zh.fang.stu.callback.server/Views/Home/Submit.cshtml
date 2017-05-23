@@ -1,0 +1,27 @@
+﻿@model zh.fang.stu.callback.server.Controllers.ServerModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Submit</title>
+</head>
+<body>
+    <label>after <span id="xsec"></span> seconds redirect to <a href="@Model.Url">@Model.Url</a></label>
+    <script type="text/javascript">
+        var tick = 3;
+        document.getElementById("xsec").innerText = new String(tick);
+        var handler = setInterval(function () {
+            document.getElementById("xsec").innerText = new String(--tick);
+            if (0 == tick) {
+                clearInterval(handler);
+                window.location.href = "@Url.Action("success", new { url= Model.Url })";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>

@@ -23,6 +23,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zh.fang.stu.webapi.response
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zh.fang.stu.encryption", "zh.fang.stu.encryption\zh.fang.stu.encryption.csproj", "{DC202C30-3670-49BC-BCBE-163EAA5B6C5C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "callback", "callback", "{FA5BBC4D-4A30-4041-8E62-BDC0D58DE863}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zh.fang.stu.callback.server", "zh.fang.stu.callback.server\zh.fang.stu.callback.server.csproj", "{C370D9BF-6C08-42A3-83E1-8F575AD7D9C6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zh.fang.stu.callback.client", "zh.fang.stu.callback.client\zh.fang.stu.callback.client.csproj", "{01D9D4BC-2FEE-4C8E-962F-EDC3B0DB9A2F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,8 +75,20 @@ Global
 		{DC202C30-3670-49BC-BCBE-163EAA5B6C5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DC202C30-3670-49BC-BCBE-163EAA5B6C5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DC202C30-3670-49BC-BCBE-163EAA5B6C5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C370D9BF-6C08-42A3-83E1-8F575AD7D9C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C370D9BF-6C08-42A3-83E1-8F575AD7D9C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C370D9BF-6C08-42A3-83E1-8F575AD7D9C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C370D9BF-6C08-42A3-83E1-8F575AD7D9C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01D9D4BC-2FEE-4C8E-962F-EDC3B0DB9A2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01D9D4BC-2FEE-4C8E-962F-EDC3B0DB9A2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01D9D4BC-2FEE-4C8E-962F-EDC3B0DB9A2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01D9D4BC-2FEE-4C8E-962F-EDC3B0DB9A2F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C370D9BF-6C08-42A3-83E1-8F575AD7D9C6} = {FA5BBC4D-4A30-4041-8E62-BDC0D58DE863}
+		{01D9D4BC-2FEE-4C8E-962F-EDC3B0DB9A2F} = {FA5BBC4D-4A30-4041-8E62-BDC0D58DE863}
 	EndGlobalSection
 EndGlobal
