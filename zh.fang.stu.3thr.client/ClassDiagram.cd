@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="zh.fang.stu._3thr.client.ExecuteHandleFactory" Collapsed="true">
+    <Position X="4.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>ExecuteHandleFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="zh.fang.stu._3thr.client.PipelineContext" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAQAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PipelineContext.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Context" />
+      <Property Name="Result" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="zh.fang.stu._3thr.client.Pipeline" Collapsed="true">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAIAIAAAAAAAACQgIgAAQAAAAAAAADAAAAACgIAABAA=</HashCode>
+      <FileName>Pipeline.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="zh.fang.stu._3thr.client.PipelineList" Collapsed="true">
+    <Position X="7" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgIAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>PipelineList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="zh.fang.stu._3thr.client.SimplePipelineList" Collapsed="true">
+    <Position X="7" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAAAAAAQAAAAAAgAAAAAAAAAIEABAA=</HashCode>
+      <FileName>SimplePipelineList.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ErrorPipeline" />
+      <Property Name="CompletePileline" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="zh.fang.stu._3thr.client.ErrorPipeline" Collapsed="true">
+    <Position X="9.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAEAAAAAAAAQAAAAAAAAAAAAAACAIEABAA=</HashCode>
+      <FileName>ErrorPipeline.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="CompletePileline" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="zh.fang.stu._3thr.client.ExecutorPipelineList" Collapsed="true">
+    <Position X="7" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ExecutorPipelineList.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Handler" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="zh.fang.stu._3thr.client.CompletePileline" Collapsed="true">
+    <Position X="12.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAAAAAQAAAAAAgAAAAAAAAAIAABAA=</HashCode>
+      <FileName>CompletePileline.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ErrorPipeline" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="zh.fang.stu._3thr.client.PipelineProvider" Collapsed="true">
+    <Position X="4.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EQIAEAAAAAiAAAAAAAEUAAAgAiIAAAAAGAICBAAAAAA=</HashCode>
+      <FileName>PipelineProvider.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="zh.fang.stu._3thr.client.ExampleExecuteHandle" Collapsed="true">
+    <Position X="1.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ExampleExecuteHandle.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="zh.fang.stu._3thr.client.ExampleExecuteContext" Collapsed="true">
+    <Position X="1.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ExampleExecuteContext.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="zh.fang.stu._3thr.client.ExampleExecuteResult" Collapsed="true">
+    <Position X="1.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ExampleExecuteResult.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="zh.fang.stu._3thr.client.Program">
+    <Position X="10.25" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAKAgAAAAAAAAAAAAQAAAAADAAAACA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="zh.fang.stu._3thr.client.IExecuteContext" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IExecuteContext.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="zh.fang.stu._3thr.client.IExecuteResult" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IExecuteResult.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="zh.fang.stu._3thr.client.IExecuteHandle" Collapsed="true">
+    <Position X="4.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IExecuteHandle.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="zh.fang.stu._3thr.client.IPipeline" Collapsed="true">
+    <Position X="7" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAQAQAAAAAAAAAAAACAIAAAAA=</HashCode>
+      <FileName>IPipeline.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="zh.fang.stu._3thr.client.IPipelineProvider" Collapsed="true">
+    <Position X="4.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAQAAAAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>IPipelineProvider.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Pipeline" />
+    </ShowAsAssociation>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
