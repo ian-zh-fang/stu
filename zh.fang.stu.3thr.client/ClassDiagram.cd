@@ -106,13 +106,6 @@
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="zh.fang.stu._3thr.client.Program">
-    <Position X="10.25" Y="7.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAKAgAAAAAAAAAAAAQAAAAADAAAACA=</HashCode>
-      <FileName>Program.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Interface Name="zh.fang.stu._3thr.client.IExecuteContext" Collapsed="true">
     <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
