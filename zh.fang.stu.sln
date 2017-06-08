@@ -37,6 +37,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zh.fang.stu.equal", "zh.fan
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zh.fang.stu.enumerate", "zh.fang.stu.enumerate\zh.fang.stu.enumerate.csproj", "{BAEFC6C8-A38D-49FA-903C-9D5E5C3419A8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zh.fang.stu.@dynamic", "zh.fang.stu.@dynamic\zh.fang.stu.@dynamic.csproj", "{E6DF023C-025D-4EE0-BF84-2A56777680DD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -107,6 +109,10 @@ Global
 		{BAEFC6C8-A38D-49FA-903C-9D5E5C3419A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BAEFC6C8-A38D-49FA-903C-9D5E5C3419A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BAEFC6C8-A38D-49FA-903C-9D5E5C3419A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6DF023C-025D-4EE0-BF84-2A56777680DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6DF023C-025D-4EE0-BF84-2A56777680DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6DF023C-025D-4EE0-BF84-2A56777680DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6DF023C-025D-4EE0-BF84-2A56777680DD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
