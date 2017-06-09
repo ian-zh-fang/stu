@@ -15,7 +15,7 @@ namespace zh.fang.stu.serializa
     {
         static void Main(params string[] args)
         {
-            var str = "{\"rawName\":\"iaim\",\"balance\":0.0064}";
+            var str = "{\"rawName\":\"iaim\",\"balance\":0.0064,\"Data\":{\"a\":1,\"b\":{}}}"; // {"rawName":"iaim","balance":0.0064,"Data":{"a":1,"b":{}}}
             for (int i = 0; i < 5000; i++)
             {
                 Test(str);
@@ -29,16 +29,12 @@ namespace zh.fang.stu.serializa
             var watch = new Stopwatch();
             watch.Start();
             var example = new Example();
-            //var json = JsonConvert.SerializeObject(example);
-            //Console.WriteLine(json);
-
-            //var a = new { rawName = "iaim", balance = 0.0064 };
-            //json = JsonConvert.SerializeObject(a);
-            //Console.WriteLine(json);
+            var json = JsonConvert.SerializeObject(example);
+            Console.WriteLine(json);
 
             example = JsonConvert.DeserializeObject<Example>(str);
-            //var json = JsonConvert.SerializeObject(example);
-            //Console.WriteLine(json);
+            json = JsonConvert.SerializeObject(example);
+            Console.WriteLine(json);
             watch.Stop();
             Console.Write(watch.ElapsedMilliseconds+" ");
         }
@@ -56,7 +52,9 @@ namespace zh.fang.stu.serializa
                 var value = GetPropertyValue(property, info);
                 if (null == value) continue;
 
-                property.SetValue(this, value, null);
+                if (null == property.SetMethod) continue;
+
+               value = property.SetMethod.Invoke(this, new object[] { value });
             }
         }
 
@@ -125,6 +123,8 @@ namespace zh.fang.stu.serializa
         public decimal balance { get; set; } = 2.00542M;
 
         public string RawName { get; set; } = "aimy";
+
+        public object Data { get; private set; }
     }
 
     public interface IParameterNameAttribute
