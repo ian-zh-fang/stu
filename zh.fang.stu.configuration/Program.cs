@@ -7,6 +7,12 @@
     {
         static void Main(string[] args)
         {
+            // 读取非内置文件
+            var file = new ExeConfigurationFileMap();
+            file.ExeConfigFilename = $"{AppDomain.CurrentDomain.BaseDirectory}vs.config";
+            var cfg = ConfigurationManager.OpenMappedExeConfiguration(file, ConfigurationUserLevel.None);
+            var cfgsec = cfg.GetSection("securityProvider");
+
             var config = ConfigurationManager.GetSection("securityProvider");
 
             var section = (MyConfigSection)ConfigurationManager.GetSection("testProvider/testItems");

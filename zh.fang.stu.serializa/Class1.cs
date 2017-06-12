@@ -94,12 +94,26 @@ namespace zh.fang.stu.serializa
         private object GetPropertyValueString(PropertyInfo property)
         {
             var value = property.GetValue(this, null);
-            if (object.Equals(value, null)) return null;
+            if (object.Equals(value, null)) return EnsurePropertyValue(property, value);
 
             var attr = property.GetCustomAttributes().FirstOrDefault(t => t is IPropertyValueAttribute) as IPropertyValueAttribute;
-            if (null == attr) return value.ToString();
+            if (null == attr) return EnsurePropertyValue(property, value);
 
-            return attr.GetValue(value);
+            value = attr.GetValue(value);
+            return EnsurePropertyValue(property, value);
+        }
+
+        protected virtual object EnsurePropertyValue(PropertyInfo property, object value)
+        {
+            if (!object.Equals(value, null)) return value;
+
+            var name = property.PropertyType.FullName;
+
+            if (string.Equals(name, typeof(String).FullName)) return string.Empty;
+
+            if (string.Equals(name, typeof(Object).FullName)) return new object { };
+
+            return value;
         }
 
         private string GetPropertyName(PropertyInfo property)
@@ -125,6 +139,8 @@ namespace zh.fang.stu.serializa
         public string RawName { get; set; } = "aimy";
 
         public object Data { get; private set; }
+
+        public Example Example1 { get; private set; }
     }
 
     public interface IParameterNameAttribute

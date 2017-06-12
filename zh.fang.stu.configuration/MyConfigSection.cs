@@ -2,6 +2,7 @@
 {
     using System;
     using System.Configuration;
+    using System.Xml;
 
     public class MyConfigSectionGroup:ConfigurationSectionGroup
     {
@@ -18,6 +19,19 @@
 
         [ConfigurationProperty("items", IsDefaultCollection = true, IsRequired = false)]
         public MyItemElementCollection Items => (MyItemElementCollection)base["items"];
+
+        [ConfigurationProperty("avalue", IsRequired = false)]
+        public avalueElement Avalue => (avalueElement)base["avalue"];
+    }
+
+    public class avalueElement:ConfigurationElement
+    {
+        protected override void DeserializeElement(XmlReader reader, bool serializeCollectionKey)
+        {
+            Value = reader.ReadElementContentAsString();
+        }
+
+        public string Value { get; private set; }
     }
 
     public class MyItemElement : ConfigurationElement
