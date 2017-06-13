@@ -1,7 +1,10 @@
 ﻿namespace zh.fang.stu.configuration
 {
     using System;
-    using System.Configuration;    
+    using System.Configuration;
+    using System.Security.Cryptography;
+    using System.Text;
+    using System.Text.RegularExpressions;
 
     class Program
     {
@@ -11,7 +14,16 @@
             var file = new ExeConfigurationFileMap();
             file.ExeConfigFilename = $"{AppDomain.CurrentDomain.BaseDirectory}vs.config";
             var cfg = ConfigurationManager.OpenMappedExeConfiguration(file, ConfigurationUserLevel.None);
-            var cfgsec = cfg.GetSection("securityProvider");
+            var cfgsec = cfg.GetSection("depository") as IConfig;
+            var key = Regex.Replace(cfgsec.PrivateKey, @"(\r|\n|\s)+", "");
+            Console.WriteLine(key);
+            var buffer = Convert.FromBase64String(key);
+            
+            key = Encoding.Unicode.GetString(buffer, 0, buffer.Length);
+            Console.WriteLine(key);
+
+
+
 
             var config = ConfigurationManager.GetSection("securityProvider");
 
