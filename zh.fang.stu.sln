@@ -43,6 +43,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zh.fang.stu.serializa", "zh
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zh.fang.stu.@delegate", "zh.fang.stu.@delegate\zh.fang.stu.@delegate.csproj", "{7B41F5C3-C4B1-4788-BF09-8727ED154A65}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zh.fang.stu.bootstraptable", "zh.fang.stu.bootstraptable\zh.fang.stu.bootstraptable.csproj", "{2CFEDE1E-3313-457A-9BF7-AB4D0E5A88F3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -125,6 +127,10 @@ Global
 		{7B41F5C3-C4B1-4788-BF09-8727ED154A65}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B41F5C3-C4B1-4788-BF09-8727ED154A65}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B41F5C3-C4B1-4788-BF09-8727ED154A65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CFEDE1E-3313-457A-9BF7-AB4D0E5A88F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CFEDE1E-3313-457A-9BF7-AB4D0E5A88F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CFEDE1E-3313-457A-9BF7-AB4D0E5A88F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CFEDE1E-3313-457A-9BF7-AB4D0E5A88F3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

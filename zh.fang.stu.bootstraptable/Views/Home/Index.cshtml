@@ -1,0 +1,81 @@
+﻿
+<div id="toolbar" class="col-lg-10" style="padding:0px; margin:20px 0px 10px 0px;">
+    <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search for...">
+        <span class="input-group-btn">
+            <button class="btn btn-default search" type="button" aria-label="Left Align">
+                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                Search
+            </button>
+            <button class="btn btn-default search" type="button" aria-label="Left Align">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                Addition
+            </button>
+        </span>
+    </div>
+</div>
+<table id="table"></table>
+
+@section scripts{
+    <script type="text/javascript">
+        var $table = $('#table');
+        $table.bootstrapTable({
+            url: "@Url.Action("Search")",
+            method:'get', // or 'post'
+            idField: 'id',
+            sortOrder: 'asc', // or 'desc'
+            showRefresh: false,
+            singleSelect: true,
+            cache: false,
+            search: false,
+            clickToSelect: true,
+            striped: true,
+            pagination: true,
+            pageNumber: 1,
+            pageSize: 30,
+            pageList:[30,50,100],
+            sidePagination: "server",
+            searchText: '',
+            //toolbar: "#toolbar",
+            columns: [
+                {
+                    title: '活动名称',
+                    field: 'name',
+                    align: 'center',
+                    valign: 'middle'
+                },
+                {
+                    title: '状态',
+                    field: 'status',
+                    align: 'center',
+                    valign: 'middle',
+                },
+                {
+                    title: '参与人数',
+                    field: 'participationCounts',
+                    align: 'center'
+                },
+                {
+                    title: '总人数',
+                    field: 'totalCounts',
+                    align: 'center'
+                },
+                {
+                    title: '开始时间',
+                    field: 'startTime',
+                    align: 'center',
+                },
+                {
+                    title: '操作',
+                    field: 'id',
+                    align: 'center',
+                    formatter: function (value, row, index) {
+                        var e = '<a href="#" mce_href="#" onclick="edit(\'' + row.id + '\')">编辑</a> ';
+                        var d = '<a href="#" mce_href="#" onclick="del(\'' + row.id + '\')">删除</a> ';
+                        return e + d;
+                    }
+                }
+            ]
+        });
+    </script>
+}
