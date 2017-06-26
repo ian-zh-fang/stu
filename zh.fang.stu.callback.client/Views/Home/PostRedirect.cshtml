@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "PostRedirect";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form action="@Url.Action("PostRedirectSubmit")" method="post">
+
+    <label>id</label><input type="text" name="id" value="@((new Random()).Next(100,10000))" />
+    <label>name</label><input type="text" name="name" value="@((new Random()).Next(100,10000))" />
+    <label>age</label><input type="text" name="age"value="@((new Random()).Next(35,120))"  />
+
+    <input type="submit" />
+</form>
+

@@ -46,6 +46,12 @@ namespace zh.fang.stu.callback.server.Controllers
             return Redirect(url);
             //return RedirectToAction(nameof(Index), new { url = url });
         }
+
+        [Route("notify")]
+        public ActionResult Notify(string data)
+        {
+            return Redirect($"http://localhost:57469/callback?data={data}");
+        }
     }
 
     public sealed class ServerModel
