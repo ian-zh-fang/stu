@@ -12,6 +12,14 @@
     {
         static void Main(string[] args)
         {
+            var match = Regex.Match(
+                "serviceName=asdasdas&platformNo=adsfasd&userDevice=pc&respData=sdasdad&sign=sadasdas&responseType=Callback",
+                @"^(?<p>(?<kv>\w+[=]\w{0,})[&]?)+$");
+
+            var matches = Regex.Matches(
+                "serviceName=asdasdas&platformNo=adsfasd&userDevice=pc&respData=sdasdad&sign=sadasdas&responseType=Callback",
+                @"^(?<p>(?<kv>\w+[=]\w{0,})[&]?)+$");
+
             var sactor = typeof(StaticClsImpl).GetConstructors(BindingFlags.Static);
 
             StaticClsImpl.Init();

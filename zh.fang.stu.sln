@@ -45,6 +45,17 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zh.fang.stu.@delegate", "zh
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zh.fang.stu.bootstraptable", "zh.fang.stu.bootstraptable\zh.fang.stu.bootstraptable.csproj", "{2CFEDE1E-3313-457A-9BF7-AB4D0E5A88F3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zh.fang.stu.mvctest", "zh.fang.stu.mvctest\zh.fang.stu.mvctest.csproj", "{01213BC8-9394-4B49-9B2A-4A99645DB6BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zh.fang.stu.rabbitmq", "zh.fang.stu.rabbitmq\zh.fang.stu.rabbitmq.csproj", "{4E3ACFE8-EDD4-4CB9-B228-9506A71CF811}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dll", "dll", "{944342B3-488C-41AA-93EA-56A1CFEAC3D9}"
+	ProjectSection(SolutionItems) = preProject
+		dll\RabbitMQ.Client.dll = dll\RabbitMQ.Client.dll
+		dll\RabbitMQ.Client.xml = dll\RabbitMQ.Client.xml
+		dll\RabbitMQ.ServiceModel.dll = dll\RabbitMQ.ServiceModel.dll
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -131,6 +142,14 @@ Global
 		{2CFEDE1E-3313-457A-9BF7-AB4D0E5A88F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2CFEDE1E-3313-457A-9BF7-AB4D0E5A88F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2CFEDE1E-3313-457A-9BF7-AB4D0E5A88F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01213BC8-9394-4B49-9B2A-4A99645DB6BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01213BC8-9394-4B49-9B2A-4A99645DB6BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01213BC8-9394-4B49-9B2A-4A99645DB6BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01213BC8-9394-4B49-9B2A-4A99645DB6BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E3ACFE8-EDD4-4CB9-B228-9506A71CF811}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E3ACFE8-EDD4-4CB9-B228-9506A71CF811}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E3ACFE8-EDD4-4CB9-B228-9506A71CF811}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E3ACFE8-EDD4-4CB9-B228-9506A71CF811}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
