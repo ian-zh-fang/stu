@@ -27,59 +27,83 @@ namespace zh.fang.stu.rabbitmq
                         Console.WriteLine("============================================================> {0}", index);
                     }
 
-                    var length = 1024;
+                    var outlen = 3;
+                    var length = 0;
                     var offset = 0;
-                    for (int i = 0; i < length; i++)
+                    var outoffset = 0;
+                    while (length > 0 && outlen > 0)
                     {
-                        var thread = new Thread(() =>
+                        outoffset++;
+                        for (int j = 0; j < length; j++)
                         {
-                            eset.Wait();
-                            using (var s = new Sender())
+                            //var thread = new Thread(() =>
+                            //{
+                            //    eset.Wait();
+                            //    using (var s = new Sender())
+                            //    {
+                            //        s.Run();
+
+                            //        Task.Factory.StartNew(() =>
+                            //        {
+                            //            lock (_syncLocker)
+                            //            {
+                            //                offset++;
+                            //                Console.WriteLine("------------------------------------------------------------------> {0}:{1} -- {2}", index, length, offset);
+                            //            }
+
+                            //            if (length == offset)
+                            //            {
+                            //                statusBuffer[index] = true;
+                            //            }
+                            //        });
+                            //    }
+                            //});
+                            //thread.Start();
+
+                            Task.Run(() =>
                             {
-                                s.Run();
-
-                                Task.Factory.StartNew(() =>
+                                //eset.Wait();
+                                using (var s = new Sender())
                                 {
-                                    lock (_syncLocker)
-                                    {
-                                        offset++;
-                                        Console.WriteLine("------------------------------------------------------------------> {0}:{1} -- {2}", index, length, offset);
-                                    }
+                                    //s.Run();
 
-                                    if (length == offset)
+                                    Task.Factory.StartNew(() =>
                                     {
-                                        statusBuffer[index] = true;
-                                    }
-                                });
+                                        lock (_syncLocker)
+                                        {
+                                            offset++;
+                                            Console.WriteLine("------------------------------------------------------------------> {0}:{1} -- {2}", index, outlen * length, offset);
+                                        }
+
+                                        if (outoffset * length == offset)
+                                        {
+                                            statusBuffer[index] = true;
+                                        }
+                                    });
+                                }
+                            });
+
+                            Console.WriteLine("sender is ready --> {0}", j);
+                        }
+
+                        if(outoffset == outlen)
+                        {
+                            break;
+                        }
+
+                        while(true)
+                        {
+                            Console.WriteLine("check out ... ");
+                            if(statusBuffer[index])
+                            {
+                                statusBuffer[index] = false;
+                                break;
                             }
-                        });
-                        thread.Start();
 
-                        //Task.Factory.StartNew(() => {
-                        //    eset.Wait();
-                        //    using (var s = new Sender())
-                        //    {
-                        //        s.Run();
-
-                        //        Task.Factory.StartNew(() =>
-                        //        {
-                        //            lock (_syncLocker)
-                        //            {
-                        //                offset++;
-                        //                Console.WriteLine("------------------------------------------------------------------> {0}:{1} -- {2}", index, length, offset);
-                        //            }
-
-                        //            if (length == offset)
-                        //            {
-                        //                statusBuffer[index] = true;
-                        //            }
-                        //        });
-                        //    }
-                        //});
-
-                        Console.WriteLine("sender is ready --> {0}", i);
+                            Task.Delay(1000).Wait();
+                        }
                     }
-                    eset.Set();
+                    //eset.Set();
                 },
                 () => {
                     var index = 0;
@@ -101,7 +125,7 @@ namespace zh.fang.stu.rabbitmq
                 Task.Factory.StartNew(() => Console.WriteLine(string.Join(" ", statusBuffer.Select((val, index) => $"{index}:{val}"))));
 
                 var key = Console.ReadKey();
-                if(key.Modifiers == ConsoleModifiers.Control && key.Key == ConsoleKey.C)
+                if(key.Modifiers == ConsoleModifiers.Control && key.Key == ConsoleKey.Q)
                 {
                     Console.WriteLine(string.Join(" ", statusBuffer));
 
@@ -112,6 +136,12 @@ namespace zh.fang.stu.rabbitmq
                     break;
                 }
             }
+            eset.Dispose();
+        }
+
+        static void SenderRun(ManualResetEventSlim eventReseter, Action callback)
+        {
+
         }
     }
 

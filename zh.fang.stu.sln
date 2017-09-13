@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26403.7
+VisualStudioVersion = 15.0.26730.10
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zh.fang.stu.httpmodel", "zh.fang.stu.httpmodel\zh.fang.stu.httpmodel.csproj", "{6AB1CD4E-3FC3-412E-9BF1-866DA1F34183}"
 EndProject
@@ -55,6 +55,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dll", "dll", "{944342B3-488
 		dll\RabbitMQ.Client.xml = dll\RabbitMQ.Client.xml
 		dll\RabbitMQ.ServiceModel.dll = dll\RabbitMQ.ServiceModel.dll
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zh.fang.stu.cancellation", "zh.fang.stu.cancellation\zh.fang.stu.cancellation.csproj", "{C28EB2F7-1DE5-413B-AB68-36DBEE3452A2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -150,6 +152,10 @@ Global
 		{4E3ACFE8-EDD4-4CB9-B228-9506A71CF811}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4E3ACFE8-EDD4-4CB9-B228-9506A71CF811}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4E3ACFE8-EDD4-4CB9-B228-9506A71CF811}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C28EB2F7-1DE5-413B-AB68-36DBEE3452A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C28EB2F7-1DE5-413B-AB68-36DBEE3452A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C28EB2F7-1DE5-413B-AB68-36DBEE3452A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C28EB2F7-1DE5-413B-AB68-36DBEE3452A2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -157,5 +163,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{C370D9BF-6C08-42A3-83E1-8F575AD7D9C6} = {FA5BBC4D-4A30-4041-8E62-BDC0D58DE863}
 		{01D9D4BC-2FEE-4C8E-962F-EDC3B0DB9A2F} = {FA5BBC4D-4A30-4041-8E62-BDC0D58DE863}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3FDE7A8B-6B30-4638-9239-781CE9B06C63}
 	EndGlobalSection
 EndGlobal
