@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Reflection;
+using System.Collections.Concurrent;
 
 namespace zh.fang.stu.enumerate
 {
@@ -10,18 +12,153 @@ namespace zh.fang.stu.enumerate
     {
         static void Main(params string[] args)
         {
-            //var a = A.a;
-            //var b = B.b;
+            Console.WriteLine("0x03 & 0x01 --> {0:x2}", 0x03 & 0x01);
+            Console.WriteLine("0x03 & 0x02 --> {0:x2}", 0x03 & 0x02);
+            Console.WriteLine("0x03 & 0xff --> {0:x2}", 0x03 & 0xff);
+            Console.WriteLine("0x03 | 0xff --> {0:x2}", 0x03 | 0xff);
 
-            AccessTypeEnum at1 = null;
-            AccessTypeEnum at2 = AccessTypeEnum.FULL_CHECKED;
-            Console.WriteLine(at1);
-            Console.WriteLine(at2);
-            Console.WriteLine(null == at1);
-            Console.WriteLine(at1 == at2);
+            var s = StringEnum.Get(null);
+            var i = Int32Enum.Get(0);
 
-            Console.ReadKey();
+            var a = new A();
+            C(ref a);
+            
         }
+
+        static void C(ref A a)
+        {
+            a = null;
+        }
+
+        private class A { }
+    }
+
+    /// <summary>
+    /// 旨在定义一种可枚举类型的基础结构
+    /// </summary>
+    /// <typeparam name="TEnum">内部枚举值类型</typeparam>
+    public abstract class EnumDependancy<TEnum>
+        where TEnum : IEquatable<TEnum>, IComparable<TEnum>
+    {
+        /// <summary>
+        /// 一种收保护机制的构造函数
+        /// </summary>
+        /// <param name="value">枚举值</param>
+        protected EnumDependancy(TEnum value)
+            : base()
+        {
+            OnCheck(value);
+            Value = value;
+        }
+
+        /// <summary>
+        /// 指定值的有效性验证
+        /// </summary>
+        /// <param name="value">需要验证的值</param>
+        protected virtual void OnCheck(TEnum value) { }
+
+        public override string ToString()
+        {
+            return Value.ToString();
+        }
+
+        /// <summary>
+        /// 枚举值
+        /// </summary>
+        public TEnum Value { get; private set; }
+    }
+
+    /// <summary>
+    /// 旨在定义一种可枚举类型的基础结构关系映射
+    /// </summary>
+    /// <typeparam name="TEnum">内部枚举值类型</typeparam>
+    /// <typeparam name="TValue">枚举关系映射类型</typeparam>
+    public abstract class EnumDependancy<TEnum, TValue>
+        : EnumDependancy<TEnum>
+        where TValue : EnumDependancy<TEnum>
+        where TEnum : IEquatable<TEnum>, IComparable<TEnum>
+    {
+        // 线程安全同步锁
+        private static readonly object _SyncLocker = new object();
+
+        // 线程安全的枚举值映射对象集合
+        private static ConcurrentBag<TValue> _enumValues;
+
+        /// <summary>
+        /// 一种收保护机制的构造函数
+        /// </summary>
+        /// <param name="value">枚举值</param>
+        protected EnumDependancy(TEnum value)
+            : base(value)
+        { }
+
+        /// <summary>
+        /// 从枚举值映射对象集合中查询和指定枚举值匹配的枚举上下文实例，并返回匹配的枚举上下文实例。若匹配失败，返回 null。
+        /// </summary>
+        /// <param name="value">需要匹配的枚举值</param>
+        /// <returns></returns>
+        protected static TValue GetEnum(TEnum value)
+        {
+            var arr = InitEnum();
+            if (arr == null) { return null; }
+
+            return arr.FirstOrDefault(t => object.Equals(t.Value, value));
+        }
+
+        // 初始化枚举值映射对象集合
+        private static ConcurrentBag<TValue> InitEnum()
+        {
+            if (_enumValues == null)
+            {
+                lock (_SyncLocker)
+                {
+                    if (_enumValues == null)
+                    {
+                        try
+                        {
+                            var arr =
+                                typeof(TValue).GetFields(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static)
+                                .Select(t => t.GetValue(null) as TValue)
+                                .Where(t => t != null);
+                            _enumValues = new ConcurrentBag<TValue>(arr);
+                        }
+                        catch (Exception) { }
+                    }
+                }
+            }
+
+            return _enumValues;
+        }
+    }
+
+    class StringEnum:EnumDependancy<string, StringEnum>
+    {
+        private StringEnum(string value)
+            :base(value)
+        { }
+
+        public static StringEnum Get(string v)
+        {
+            return GetEnum(v);
+        }
+
+        public static readonly StringEnum None = new StringEnum(null);
+
+        public static readonly StringEnum Post = new StringEnum("post");
+    }
+
+    class Int32Enum:EnumDependancy<Int32, Int32Enum>
+    {
+        private Int32Enum(int value)
+            :base(value)
+        { }
+
+        public static Int32Enum Get(int v)
+        {
+            return GetEnum(v);
+        }
+
+        public static readonly Int32Enum None = new Int32Enum(0);
     }
 
     public abstract class EnumContext

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,6 +11,13 @@ namespace zh.fang.stu.cancellation
     {
         static void Main(string[] args)
         {
+            var fileds = typeof(A).GetFields(BindingFlags.Public | BindingFlags.Static);
+            for (int i = 0; i < fileds.Length; i++)
+            {
+                var field = fileds[i];
+                var obj = field.GetValue(null);
+            }
+
             var cancel = new System.Threading.CancellationTokenSource();
 
             Task.Factory.StartNew(() =>
@@ -26,5 +34,16 @@ namespace zh.fang.stu.cancellation
 
             Console.ReadKey();
         }
+    }
+
+    class A
+    {
+        
+
+        public static readonly A a = new A();
+
+        public static readonly A aa = new A();
+
+        public static readonly A an;
     }
 }

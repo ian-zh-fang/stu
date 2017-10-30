@@ -242,6 +242,9 @@ namespace zh.fang.stu.rabbitmq
 
     sealed class Receiver:Client
     {
+        private byte[] buffer = null;
+        private System.Threading.AutoResetEvent eventRest = new System.Threading.AutoResetEvent(false);
+
         protected override void Run(ConnectionFactory factory)
         {
             using (var connection = factory.CreateConnection())
@@ -255,10 +258,16 @@ namespace zh.fang.stu.rabbitmq
 
                     Console.WriteLine(" waiting for message.");
                     consumer.Received += (s, e) => {
-                        var body = e.Body;
+                        var body = buffer = e.Body;
                         var message = Encoding.UTF8.GetString(body);
                         Console.WriteLine("Received {0}", message);
+
+                        eventRest.Reset();
                     };
+
+                    eventRest.WaitOne();
+
+                    Console.WriteLine(System.Text.Encoding.UTF8.GetString(buffer));
 
                     while (true)
                     {
