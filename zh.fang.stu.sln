@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.10
+VisualStudioVersion = 15.0.27004.2006
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zh.fang.stu.httpmodel", "zh.fang.stu.httpmodel\zh.fang.stu.httpmodel.csproj", "{6AB1CD4E-3FC3-412E-9BF1-866DA1F34183}"
 EndProject
@@ -63,6 +63,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zh.fang.stu.equalable", "zh.fang.stu.equalable\zh.fang.stu.equalable.csproj", "{F9D0581B-B42C-4B6A-A50F-0568072C51D0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zh.fang.stu.xml", "zh.fang.stu.xml\zh.fang.stu.xml.csproj", "{AFD45D75-437C-4403-89E4-287C596E04C2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "zh.fang.stu.@using", "zh.fang.stu.@using\zh.fang.stu.@using.csproj", "{DB78F7DC-7E1E-488F-A2E3-6D8371490A34}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -174,6 +176,10 @@ Global
 		{AFD45D75-437C-4403-89E4-287C596E04C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AFD45D75-437C-4403-89E4-287C596E04C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AFD45D75-437C-4403-89E4-287C596E04C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB78F7DC-7E1E-488F-A2E3-6D8371490A34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB78F7DC-7E1E-488F-A2E3-6D8371490A34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB78F7DC-7E1E-488F-A2E3-6D8371490A34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB78F7DC-7E1E-488F-A2E3-6D8371490A34}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
